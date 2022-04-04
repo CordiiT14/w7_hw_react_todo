@@ -5,9 +5,9 @@ import {useState} from 'react';
 function App() {
 
   const [todo, setTodo] = useState([
-    {name:"Food Shopping", priority: "low"},
-    {name: "Walk the Dog", priority: "high"},
-    {name: "Go to Gym", priority: "low"}
+    {name:"Food Shopping", priority: "low", completed: false},
+    {name: "Walk the Dog", priority: "high", completed: true},
+    {name: "Go to Gym", priority: "low", completed: false}
   ]);
 
   const [newTodo, setNewTodo] = useState('');
@@ -16,7 +16,10 @@ function App() {
 
   const todoNodes = todo.map((todoItem, index) => {
     return (
-    <li key={index}><span className={todoItem.priority == 'high' ? 'highPriority' : 'lowPriority'}>{todoItem.name}</span></li>
+    <li key={index}>
+      <span className={todoItem.priority == 'high' ? 'highPriority' : 'lowPriority'}>{todoItem.name}</span>
+      {todoItem.completed ? <span> ✅ </span> : <button onClick={() => taskDone(index)}>Done</button> }
+    </li>
   )
   });
 
@@ -31,9 +34,15 @@ function App() {
   const addTodo = (event) => {
     event.preventDefault();
     const copyTodo = [...todo];
-    copyTodo.push({name: newTodo , priority: newTodoPriority});
+    copyTodo.push({name: newTodo , priority: newTodoPriority, completed: false});
     setTodo(copyTodo);
     setNewTodo('');
+  };
+
+  const taskDone = (index) => {
+    const copyTodo = [...todo];
+    copyTodo[index].completed = true;
+    setTodo(copyTodo);
   };
 
   return (

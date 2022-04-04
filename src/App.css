@@ -52,6 +52,14 @@ li {
   content: "🟠 ";
 }
 
+button {
+  margin-left: 15px; 
+  color: white;
+  background-color: #025e36;
+  border-radius: 5px;
+}
+
+
 .text-input {
   display: block;
   margin: auto;
