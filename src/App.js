@@ -38,20 +38,26 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>My Todo List:</h1>
+      <h1>My Todo List App</h1>
 
       <form onSubmit={addTodo}>
-        <input id='new-item' type='text' value={newTodo} onChange={handleNewTodoItem}></input>
-        <label htmlFor='high-priority'>High</label>
+        <h2>New Task:</h2>
+        <input className='text-input' id='new-item' type='text' value={newTodo} onChange={handleNewTodoItem}></input>
+        <h2>Priority: </h2>
+        <br></br>
+        <label className='highPriority' htmlFor='high-priority'>High</label>
         <input type='radio' value='high' name='priority' onChange={handleNewTodoPriority}></input>
-        <label htmlFor='low-priority'>Low</label>
+        <label className='lowPriority' htmlFor='low-priority'>Low</label>
         <input type='radio' value='low' name='priority' onChange={handleNewTodoPriority}></input>
-        <input type='submit' value='Add New Task'></input>
+        <input className='submit-button' type='submit' value='Add New Task'></input>
       </form>
 
+      <div className='todo-list'>
+      <h2>Todo List:</h2>
       <ul>
         {todoNodes}
       </ul>
+      </div>
 
       </div>
   );
