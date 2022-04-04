@@ -6,7 +6,7 @@ function App() {
 
   const [todo, setTodo] = useState(["Food Shopping", "Walk the Dog", "Go to Gym"]);
 
-  const [newTodo, setNewTodo] = useState[''];
+  const [newTodo, setNewTodo] = useState('');
 
   const todoNodes = todo.map((todoItem, index) => {
     return (
