@@ -16,7 +16,7 @@ function App() {
 
   const todoNodes = todo.map((todoItem, index) => {
     return (
-    <li key={index}><span>{todoItem.name} {todoItem.priority}</span></li>
+    <li key={index}><span className={todoItem.priority == 'high' ? 'highPriority' : 'lowPriority'}>{todoItem.name}</span></li>
   )
   });
 
@@ -37,7 +37,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className='App'>
       <h1>My Todo List:</h1>
 
       <form onSubmit={addTodo}>
@@ -53,7 +53,7 @@ function App() {
         {todoNodes}
       </ul>
 
-    </>
+      </div>
   );
 }
 
